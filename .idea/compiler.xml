@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ai-code-screenshot" />
+        <module name="ai-code-client" />
+        <module name="ai-code-common" />
+        <module name="ai-code-app" />
+        <module name="ai-code-user" />
+        <module name="ai-code-model" />
+        <module name="ai-code-ai" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ai-cod-cloud" options="-parameters" />
+      <module name="ai-code-ai" options="-parameters" />
+      <module name="ai-code-app" options="-parameters" />
+      <module name="ai-code-client" options="-parameters" />
+      <module name="ai-code-common" options="-parameters" />
+      <module name="ai-code-model" options="-parameters" />
+      <module name="ai-code-screenshot" options="-parameters" />
+      <module name="ai-code-user" options="-parameters" />
+    </option>
+  </component>
+</project>
