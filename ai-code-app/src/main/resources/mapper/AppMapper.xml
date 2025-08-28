@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easen.app.mapper.AppMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.easen.model.entity.App">
+        <id column="id" property="id"/>
+        <result column="appName" property="appName"/>
+        <result column="cover" property="cover"/>
+        <result column="initPrompt" property="initPrompt"/>
+        <result column="codeGenType" property="codeGenType"/>
+        <result column="deployKey" property="deployKey"/>
+        <result column="deployedTime" property="deployedTime"/>
+        <result column="priority" property="priority"/>
+        <result column="userId" property="userId"/>
+        <result column="isTeam" property="isTeam"/>
+        <result column="editTime" property="editTime"/>
+        <result column="createTime" property="createTime"/>
+        <result column="updateTime" property="updateTime"/>
+        <result column="isDelete" property="isDelete"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, appName, cover, initPrompt, codeGenType, deployKey, deployedTime, priority, userId, isTeam, editTime, createTime, updateTime, isDelete
+    </sql>
+    <update id="batchUpdateThumbCount">
+        UPDATE app
+        SET thumbCount = thumbCount + CASE id
+        <foreach collection="countMap.entrySet()" item="value" index="key">
+            WHEN #{key} THEN #{value}
+        </foreach>
+        END
+        WHERE id IN
+        <foreach collection="countMap.keySet()" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
+</mapper>
